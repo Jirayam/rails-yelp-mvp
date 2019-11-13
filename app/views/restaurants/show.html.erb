@@ -1,0 +1,18 @@
+<div class="container text-center bg-light">
+  <h1 class="bg-primary text-white"><%= @restaurant.name %></h1>
+
+  <p class="text-primary display-3"><%= @restaurant.category %> restaurant </p>
+  <p class="text-black"><%= @restaurant.address %></p>
+  <p class="text-danger display-4"> Tel.: <%= @restaurant.phone_number %></p>
+  <p class="text-black display-3">Reviews</p>
+  <p><%= link_to "+ Add a review", new_restaurant_review_path(@restaurant)  %></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |r| %>
+    <li class="list-group-item"><%= r.rating %>/5 - <%= r.content  %> </li>
+  <% end %>
+  </ul>
+  <p><%= link_to "<< retour à la liste des restaurants", restaurants_path  %></p>
+
+
+</div>
+
